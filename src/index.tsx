@@ -12,6 +12,7 @@ import SimFooter from "./components/footer";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { Store, persistor } from "./sp/redux/store";
+import { BrowserRouter } from "react-router-dom";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -19,21 +20,23 @@ root.render(
   <React.StrictMode>
     <Provider store={Store}>
       <PersistGate loading={null} persistor={persistor}>
-        <SimHeader />
-        <App />
-        <SimFooter />
+        <BrowserRouter>
+          <SimHeader />
+          <App />
+          <SimFooter />
 
-        <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </BrowserRouter>
       </PersistGate>
     </Provider>
   </React.StrictMode>

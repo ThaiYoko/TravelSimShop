@@ -1,24 +1,32 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.scss";
+import React, { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/home";
+
+import { data_api } from "./sp/api/data";
+import { Load_Data_Pl_Success } from "./sp/redux/slice/data";
+import { useDispatch } from "react-redux";
+import SimDetail from "./pages/simDetail";
+import Categorys from "./pages/categorys";
+import AdminLogin from "./pages/admin/authen/login";
+import AdminDashboard from "./pages/admin/dashboard";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const handle_load_data = async () => {
+      await data_api.load_data(dispatch, Load_Data_Pl_Success);
+    };
+    handle_load_data();
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/categorys/:cate" element={<Categorys />} />
+        <Route path="/product/:id" element={<SimDetail />} />
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/dashboard" element={<AdminDashboard />} />
+      </Routes>
     </div>
   );
 }

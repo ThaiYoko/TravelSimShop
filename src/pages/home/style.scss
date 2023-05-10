@@ -1,0 +1,104 @@
+@import "../../sp/scss/variable";
+#home_page {
+  #advantage {
+    .advantage_content {
+      .advantage_item {
+        min-height: 380px;
+        margin: 0 auto;
+        padding: 25px;
+        transition: 0.5s;
+        position: relative;
+        &:hover {
+          transform: scale(1.1);
+        }
+        .item_icon {
+          width: 70px;
+          height: 70px;
+          margin: 0 auto 15px auto;
+          border: 3px solid $green_700;
+          padding: 10px;
+          border-radius: 100%;
+          text-align: center;
+          span {
+            font-size: 40px;
+            color: $green_700;
+            text-align: center;
+            line-height: 50px;
+          }
+        }
+        .item_title {
+          z-index: 1;
+          margin-top: 25px;
+          h6 {
+            font-size: 20px;
+            font-family: qs_bold;
+            color: blue;
+          }
+        }
+        .item_txt {
+          z-index: 2;
+        }
+        img {
+          z-index: 1;
+          position: absolute;
+          width: 20%;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+  #TRAVELSIMSHOP {
+    .travel_content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @media only screen and (max-width: 1200px) {
+        flex-wrap: wrap;
+      }
+      .travel_item {
+        height: 550px;
+        padding: 15px 30px;
+        width: 30%;
+        margin: 0 auto;
+        overflow: hidden;
+        @media only screen and (max-width: 1200px) {
+          width: 48%;
+          margin: 0 auto;
+          margin-bottom: 15px;
+        }
+        @media only screen and (max-width: 800px) {
+          width: 90%;
+          margin: 0 auto;
+          margin-bottom: 15px;
+        }
+        .item_icon {
+          margin-top: 30px;
+          text-align: center;
+          span {
+            font-size: 4rem;
+            color: $green_700;
+          }
+        }
+        .item_title {
+          h6 {
+            font-size: 1.1rem;
+            color: $red;
+          }
+        }
+        .travel_info {
+          width: 80%;
+          margin: 0 auto;
+
+          .item_txt {
+          }
+          img {
+            margin: 0 auto;
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+  }
+}

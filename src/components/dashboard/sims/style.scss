@@ -1,0 +1,41 @@
+@import "../../../sp/scss/variable";
+#db_sim {
+  .db_sim_content {
+    .sim_filter {
+      .find {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        .input-group {
+          width: 20%;
+          margin-right: 40px;
+          input {
+            background-color: transparent;
+          }
+          button {
+            background-color: transparent;
+            border-color: white;
+          }
+        }
+      }
+      .filter_by_cate,
+      .filter_by_product {
+        list-style: none;
+        li {
+          display: inline-block;
+          border: 1px solid white;
+          padding: 10px 20px;
+          border-radius: 7px;
+          margin: 0 10px;
+          transition: 0.5s;
+          cursor: pointer;
+          &:hover,
+          &.active {
+            background-color: $red;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,26 @@
 //font family
 @font-face {
-  font-family: utm_avo;
-  src: url("../font/UTM\ Avo.ttf");
+  font-family: qs_bold;
+  src: url("../font/Quicksand-Bold.ttf");
+}
+
+@font-face {
+  font-family: qs_light;
+  src: url("../font/Quicksand-Light.ttf");
+}
+
+@font-face {
+  font-family: qs_medium;
+  src: url("../font/Quicksand-Medium.ttf");
+}
+
+@font-face {
+  font-family: qs_regular;
+  src: url("../font/Quicksand-Regular.ttf");
+}
+@font-face {
+  font-family: qs_semibold;
+  src: url("../font/Quicksand-SemiBold.ttf");
 }
 
 //Color
@@ -12,6 +31,9 @@ $blue_400: rgb(2, 2, 124);
 $blue_300: rgb(4, 4, 173);
 
 $blue: #2b3964;
-$red: #af4d4a;
+$red: #6d0000;
 $pink: #ecaba3;
 $pink_700: #f5e3e0;
+
+$green_700: #002706;
+$green_600: #00490a;

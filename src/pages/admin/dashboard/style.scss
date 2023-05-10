@@ -1,0 +1,92 @@
+#dashboard {
+  width: 100vw;
+  height: 100vh;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    -135.3877deg,
+    #a37cb7 0%,
+    #6bc5d2 80%,
+    #00aeef 100%
+  );
+  .db_content {
+    display: flex;
+    .db_left {
+      width: 250px;
+      height: 100vh;
+      border: 1px solid white;
+      .db_menu {
+        .menu_header {
+          width: 100%;
+          height: 200px;
+          position: relative;
+          border-bottom: 1px solid white;
+          img {
+            width: 150px;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+        .menu_content {
+          .menu_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: rgba(128, 128, 128, 0.178);
+            color: white;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.192);
+            transition: 0.5s;
+            &:hover,
+            &.active {
+              background-color: rgba(128, 128, 128, 0.63);
+              .item_left {
+                margin-left: 40px;
+              }
+              .item_right {
+                margin-right: 40px;
+              }
+            }
+            .item_left {
+              margin-left: 20px;
+              transition: 0.5s;
+            }
+            .item_right {
+              margin-right: 20px;
+              font-size: 1.5rem;
+              transition: 0.5s;
+            }
+          }
+        }
+      }
+    }
+    .db_right {
+      width: calc(100vw - 250px);
+      .right_header {
+        height: 50px;
+        padding: 10px 30px;
+        border-bottom: 1px solid white;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header_left {
+          p {
+            margin: 0;
+          }
+        }
+        .header_right {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+        }
+      }
+      .right_views {
+        padding: 30px;
+      }
+    }
+  }
+}

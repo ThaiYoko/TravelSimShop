@@ -8,19 +8,22 @@ export interface interFade_User {
   phone: string;
 }
 export interface interFade_Category {
-  readonly id: number;
+  id: number;
   name: string;
+  url: string;
+  Productions: interFade_Production[];
 }
 export interface interFade_Production {
-  readonly id: number;
+  id: number;
   name: string;
   idCate: number;
   avatar: string;
   Category: interFade_Category[];
+  Sims: interFade_Sim[];
 }
 
 export interface interFade_Sim {
-  readonly id: number;
+  id?: number;
   name: string;
   expiry: number;
   size_data: string;
@@ -36,6 +39,8 @@ export interface interFade_Sim {
   inventory: number;
   selled: number;
   common: boolean;
+  price: string;
+  discount: number;
 }
 
 export interface interFade_Review {
@@ -49,11 +54,21 @@ export interface interFade_Data_Admin {
   Admin: interFade_User;
   accesstoken: string;
 }
+export interface interFade_Banner {
+  url: string;
+  filename: string;
+}
 
+export interface interFade_Store {
+  sim: interFade_Sim;
+  count: number;
+}
 export interface interFade_Data {
+  Banners: interFade_Banner[];
   Categorys: interFade_Category[];
   Productions: interFade_Production[];
   Sims: interFade_Sim[];
   Hot_Sim: interFade_Sim[];
   Reviews: interFade_Review[];
+  Store: interFade_Store[];
 }

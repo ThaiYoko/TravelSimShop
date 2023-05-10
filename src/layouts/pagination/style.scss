@@ -1,0 +1,35 @@
+@import "../../sp/scss/variable";
+#pagination {
+  text-align: right;
+  button {
+    background-color: transparent;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    color: rgb(61, 61, 61);
+    border-radius: 7px;
+    border: none;
+    background-color: rgba(231, 231, 231, 0.9);
+    margin: 0 5px;
+    transition: 0.5s;
+    position: relative;
+    i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.7rem;
+    }
+    &:hover {
+      transform: scale(1.1);
+      color: blue;
+    }
+  }
+  .num_page {
+    background-color: $red;
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+}

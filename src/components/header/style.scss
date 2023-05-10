@@ -1,0 +1,103 @@
+@import "../../sp/scss/animations";
+#sim_header {
+  a {
+    color: white;
+  }
+  #header_top {
+    background-color: rgba(231, 231, 231, 0.9);
+    a {
+      font-size: 0.9rem;
+      color: rgb(32, 32, 32);
+      &:hover {
+        span {
+          animation-name: Automove;
+          animation-duration: 0.5s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+      }
+      span {
+        transition: 0.5s;
+      }
+    }
+    .icon {
+      width: 50px;
+    }
+  }
+  #header_main {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      -135.3877deg,
+      #a37cb7 0%,
+      #6bc5d2 80%,
+      #00aeef 100%
+    );
+    .logo {
+      img {
+        width: 60px;
+      }
+    }
+    .link_header {
+      padding: 15px 20px;
+      min-width: 150px;
+      text-align: center;
+      transition: 0.5s;
+      white-space: nowrap;
+      @media only screen and (max-width: 1260px) {
+        min-width: 140px;
+      }
+      &.active,
+      &:hover {
+        background-color: rgba(172, 172, 172, 0.466);
+      }
+    }
+    .header_main_right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      #input_find {
+        background-color: transparent;
+        color: white;
+        @media only screen and (max-width: 1200px) {
+          display: none;
+        }
+      }
+      #btn_find {
+        background-color: transparent;
+        border-color: white;
+        transition: 0.5s;
+        span {
+          transform: rotate(90deg) translateX(3px);
+        }
+        &:hover {
+          color: gray;
+        }
+        @media only screen and (max-width: 1200px) {
+          border-radius: 7px;
+        }
+      }
+      .store {
+        position: relative;
+        .btn_store {
+          background-color: transparent;
+          padding: 5px 15px;
+          text-align: center;
+          position: relative;
+          .icon_store {
+            color: white;
+            font-size: 2rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+        }
+        .number_badge {
+          position: absolute;
+          top: 0;
+          right: 0;
+          transform: translate(74%, -55%);
+        }
+      }
+    }
+  }
+}

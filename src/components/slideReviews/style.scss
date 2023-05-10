@@ -1,0 +1,41 @@
+@import "../../sp/scss/variable";
+#slide_reviews {
+  width: 80%;
+  margin: 0 auto;
+  @media only screen and (max-width: 1200px) {
+    width: 100%;
+  }
+  .review_item {
+    text-align: center;
+    margin: 25px 0;
+    padding: 10px 150px;
+    @media only screen and (max-width: 1200px) {
+      padding: 10px 20px;
+    }
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    h6 {
+      font-family: qs_bold;
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+    .rating {
+      span {
+        font-size: 2rem;
+        color: rgb(255, 187, 0);
+      }
+    }
+    .review_txt {
+      i {
+        font-size: 2rem;
+        margin: 0 15px;
+        color: rgb(0, 0, 161);
+      }
+    }
+  }
+}

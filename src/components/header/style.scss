@@ -1,101 +1,364 @@
 @import "../../sp/scss/animations";
+@import "../../sp/scss/variable";
+
 #sim_header {
   a {
     color: white;
   }
   #header_top {
     background-color: rgba(231, 231, 231, 0.9);
-    a {
-      font-size: 0.9rem;
-      color: rgb(32, 32, 32);
-      &:hover {
-        span {
-          animation-name: Automove;
-          animation-duration: 0.5s;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
+    @media only screen and (max-width: 991px) {
+      display: none !important;
+    }
+    .header_top_right {
+      display: flex;
+      align-items: center;
+      .icon {
+        img {
+          width: 30px;
         }
       }
-      span {
-        transition: 0.5s;
+      .find_sim {
+        position: relative;
+        display: none !important;
+        @media only screen and (max-width: 1600px) {
+          display: block !important;
+        }
+        input {
+          background-color: transparent;
+        }
+
+        .find_ket_qua {
+          position: absolute;
+          width: 200%;
+          top: 100%;
+          right: 0;
+          background-color: white;
+          max-height: 300px;
+          overflow-y: auto;
+          z-index: 999;
+          .find_link {
+            color: black;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            .img_sim {
+              padding: 5px;
+              margin: 0 3px;
+              img {
+                width: 50px;
+              }
+            }
+            .sim_info {
+              text-align: left;
+            }
+            &:hover {
+              background-color: gray;
+            }
+          }
+        }
       }
-    }
-    .icon {
-      width: 50px;
+      .store {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: rgb(158, 6, 6);
+        position: relative;
+        text-align: center;
+        cursor: pointer;
+        .store_icon {
+          span {
+            color: white;
+            text-align: center;
+            font-size: 1.3rem;
+            line-height: 30px;
+          }
+        }
+        .store_length {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background-color: white;
+          top: 0;
+          right: 0;
+          transform: translate(58%, -50%);
+          background-color: red;
+          span {
+            display: block;
+            line-height: 20px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: white;
+          }
+        }
+      }
     }
   }
   #header_main {
-    background: rgb(2, 0, 36);
-    background: linear-gradient(
-      -135.3877deg,
-      #a37cb7 0%,
-      #6bc5d2 80%,
-      #00aeef 100%
-    );
     .logo {
       img {
         width: 60px;
       }
     }
-    .link_header {
-      padding: 15px 20px;
-      min-width: 150px;
-      text-align: center;
+    .nav-link {
+      display: inline;
+    }
+    #btn_responsive {
+      display: none;
+      background-color: transparent;
+      color: white;
       transition: 0.5s;
-      white-space: nowrap;
-      @media only screen and (max-width: 1260px) {
-        min-width: 140px;
-      }
-      &.active,
+      border-color: white;
       &:hover {
-        background-color: rgba(172, 172, 172, 0.466);
+        background-color: rgba(36, 36, 36, 0.452);
+      }
+
+      @media screen and (max-width: 991px) {
+        display: block;
       }
     }
-    .header_main_right {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      #input_find {
-        background-color: transparent;
-        color: white;
-        @media only screen and (max-width: 1200px) {
-          display: none;
-        }
+    #nav_sim {
+      &.menu_show {
+        display: block;
+        opacity: 1;
+        height: auto;
+        transform: translateY(0%);
       }
-      #btn_find {
-        background-color: transparent;
-        border-color: white;
-        transition: 0.5s;
-        span {
-          transform: rotate(90deg) translateX(3px);
-        }
-        &:hover {
-          color: gray;
-        }
-        @media only screen and (max-width: 1200px) {
-          border-radius: 7px;
-        }
-      }
-      .store {
-        position: relative;
-        .btn_store {
-          background-color: transparent;
-          padding: 5px 15px;
-          text-align: center;
+      .header_main_left {
+        .link_header {
           position: relative;
-          .icon_store {
-            color: white;
-            font-size: 2rem;
+          padding: 15px 20px;
+          min-width: 150px;
+          text-align: center;
+          transition: 0.5s;
+          white-space: nowrap;
+          color: white;
+          font-weight: bold;
+          border-right: 1px solid rgba(255, 255, 255, 0.192);
+          cursor: pointer;
+          font-family: qs_light;
+          .lin {
+            @media screen and (max-width: 991px) {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            }
+            i {
+              display: none;
+              @media screen and (max-width: 991px) {
+                display: block;
+              }
+            }
+          }
+          @media only screen and (max-width: 1600px) {
+            min-width: 100px;
+          }
+          @media only screen and (max-width: 991px) {
+            background-color: transparent;
+            position: unset;
+            padding: 0;
+            min-width: unset;
+            text-align: left;
+            white-space: unset;
+            border-right: none;
+            padding: 10px 0;
+            font-size: 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.274);
+            &.active,
+            &:hover {
+              background-color: transparent !important;
+            }
+          }
+          &.active {
+            background-color: rgba(172, 172, 172, 0.466);
+          }
+          &.click {
+            .link_dropdow {
+              display: none !important;
+            }
+          }
+          &:hover {
+            background-color: rgba(172, 172, 172, 0.466);
+            .link_dropdow {
+              display: block;
+            }
+          }
+          .link_dropdow {
             position: absolute;
-            top: 0;
-            right: 0;
+            width: 350px;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            z-index: 9999;
+            display: none;
+            transition: 0.5s;
+            text-align: left;
+            color: black;
+            .dropdow_item {
+              cursor: pointer;
+              padding: 15px 20px;
+              &:hover {
+                background-color: rgba(172, 172, 172, 0.466);
+              }
+            }
+            @media only screen and (max-width: 991px) {
+              display: flex !important;
+              flex-wrap: wrap;
+              position: unset;
+              width: 100%;
+              background-color: transparent;
+              transform: none;
+              &.active {
+                .dropdow_item {
+                  display: block;
+                }
+              }
+              .dropdow_item {
+                display: none;
+                &.active,
+                &:hover {
+                  background-color: rgba(122, 122, 122, 0.479);
+                  color: white;
+                }
+              }
+            }
           }
         }
-        .number_badge {
+        .store_cart {
+          display: none;
+          @media screen and (max-width: 991px) {
+            display: block;
+          }
+        }
+        .bdr-none {
+          border-right: none;
+        }
+      }
+      .header_main_right {
+        position: relative;
+        @media only screen and (max-width: 1600px) {
+          display: none !important;
+        }
+        input {
+          background-color: transparent;
+          // border-bottom-left-radius: 0;
+        }
+        button {
+          // border-bottom-right-radius: 0;
+          border-color: white;
+          span {
+            transform: translateY(3px);
+            color: white;
+          }
+        }
+        .find_ket_qua {
           position: absolute;
-          top: 0;
+          width: 200%;
+          top: 100%;
           right: 0;
-          transform: translate(74%, -55%);
+          background-color: white;
+          max-height: 300px;
+          overflow-y: auto;
+          z-index: 999;
+          .find_link {
+            color: black;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            .img_sim {
+              padding: 5px;
+              margin: 0 3px;
+              img {
+                width: 50px;
+              }
+            }
+            .sim_info {
+              text-align: left;
+            }
+            &:hover {
+              background-color: gray;
+            }
+          }
+        }
+      }
+    }
+  }
+  .setting {
+    z-index: 99999;
+    position: fixed;
+    bottom: 187px;
+    right: 25px;
+    @media screen and (max-width: 991px) {
+      bottom: 150px;
+      .store {
+        width: 44px !important;
+        height: 44px !important;
+        .store_icon {
+          i {
+            line-height: 44px !important;
+            font-size: 1rem !important;
+          }
+        }
+      }
+    }
+
+    .store {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: rgb(158, 6, 6);
+      position: relative;
+      text-align: center;
+      cursor: pointer;
+
+      .store_icon {
+        i {
+          font-size: 1.5rem;
+          color: white;
+          text-align: center;
+          font-size: 1.5rem;
+          line-height: 60px;
+        }
+      }
+      .store_length {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: white;
+        top: 0;
+        right: 0;
+        transform: translate(8%, -30%);
+        background-color: red;
+        span {
+          display: block;
+          line-height: 20px;
+          text-align: center;
+          font-size: 0.75rem;
+          color: white;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 991px) {
+    .header_main {
+      #navbarScroll {
+        .header_main_left {
+          .link_header {
+            .link_dropdow {
+              position: unset !important;
+              display: block !important;
+            }
+          }
         }
       }
     }

@@ -1,0 +1,44 @@
+#admin_login {
+  width: 100vw;
+  height: 100vh;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    -135.3877deg,
+    #a37cb7 0%,
+    #6bc5d2 80%,
+    #00aeef 100%
+  );
+  position: relative;
+  .login_content {
+    width: 35%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.13);
+    @media only screen and (max-width: 1200px) {
+      width: 50% !important;
+    }
+    @media only screen and (max-width: 850px) {
+      width: 60% !important;
+    }
+    @media only screen and (max-width: 550px) {
+      width: 85% !important;
+      .login_btn {
+        button {
+          width: 100%;
+        }
+      }
+      small {
+        display: none !important;
+      }
+    }
+    .login_logo {
+      text-align: center;
+      img {
+        width: 30%;
+        margin: 0 auto;
+      }
+    }
+  }
+}

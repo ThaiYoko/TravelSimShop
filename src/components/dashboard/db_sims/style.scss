@@ -1,0 +1,51 @@
+@import "../../../sp/scss/variable";
+#db_sims {
+  .sims_content {
+    .db_sim {
+      position: relative;
+
+      padding: 25px;
+      .btn_add {
+        position: absolute;
+        top: 10px;
+        right: 25px;
+      }
+      .sim_filter {
+        .filter_by_cate,
+        .filter_by_product {
+          list-style: none;
+          padding-left: 0;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          flex-wrap: wrap;
+          li {
+            margin: 10px 15px;
+            padding: 15px;
+            background-color: transparent;
+            color: $red;
+            border: 1px solid $red;
+            cursor: pointer;
+            border-radius: 7px;
+            transition: 0.5s;
+            &:hover,
+            &.active {
+              background-color: $red;
+              color: white;
+            }
+          }
+        }
+      }
+
+      .db_prd_table {
+        .prd_image {
+          width: 150px;
+          margin: 0 auto;
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

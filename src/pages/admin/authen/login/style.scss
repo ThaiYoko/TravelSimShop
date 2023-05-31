@@ -14,8 +14,26 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    padding: 35px;
     transform: translate(-50%, -50%);
     background-color: rgba(255, 255, 255, 0.13);
+    @media only screen and (max-width: 1200px) {
+      width: 50% !important;
+    }
+    @media only screen and (max-width: 850px) {
+      width: 60% !important;
+    }
+    @media only screen and (max-width: 550px) {
+      width: 85% !important;
+      .login_input {
+        .login_btn {
+          button {
+            width: 100% !important;
+            margin-left: 0 !important;
+          }
+        }
+      }
+    }
     .login_logo {
       text-align: center;
       img {
@@ -23,16 +41,24 @@
         margin: 0 auto;
       }
     }
-    .login_btn {
-      button {
-        background-color: transparent;
-        border-color: white;
-        color: white;
-        padding: 10px 20px;
-        transition: 0.5s;
-        &:hover {
-          background-color: rgba(170, 170, 170, 0.37);
-          color: blue;
+    .login_input {
+      .login_btn {
+        button {
+          background-color: transparent;
+          border-color: white;
+          transition: 0.5s;
+          padding: 10px 15px;
+          min-width: 100px;
+          transform: scale(0.95);
+          &:hover {
+            transform: scale(1.1);
+            background-color: rgba(26, 26, 26, 0.144);
+            color: rgb(0, 24, 0);
+          }
+          // @media only screen and (max-width: 550px) {
+          //   width: 100% !important;
+          //   margin-left: 0 !important;
+          // }
         }
       }
     }

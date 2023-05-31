@@ -59,26 +59,27 @@ body {
 }
 #btn_btt {
   position: fixed;
-  bottom: 60px;
-  right: 5px;
-  z-index: 999;
-  background-color: transparent;
-  transform: rotate(-90deg);
+  width: 60px;
+  height: 60px;
+  bottom: 118px;
+  right: 25px;
+  z-index: 9999;
+  background-color: $green;
   border: none;
-  color: black;
+  color: white;
   transition: 0.5s;
-  &::after {
-    content: "";
-    width: 50%;
-    height: 1px;
-    background-color: $green_700;
-    display: block;
-    transition: 0.5s;
+  border-radius: 100%;
+  i {
+    font-size: 1.5rem;
   }
   &:hover {
-    &::after {
-      width: 100%;
-    }
+    background-color: #055bdd;
+  }
+  @media screen and (max-width: 991px) {
+    width: 44px !important;
+    height: 44px !important;
+    bottom: 100px;
+    right: 25px;
   }
 }
 
@@ -98,6 +99,18 @@ body {
 .w-80 {
   width: 80%;
   margin: 0 auto;
+  @media only screen and (max-width: 991px) {
+    width: 85% !important;
+    margin: 0 auto;
+  }
+  @media only screen and (max-width: 786px) {
+    width: 90% !important;
+    margin: 0 auto;
+  }
+  @media only screen and (max-width: 500px) {
+    width: 95% !important;
+    margin: 0 auto;
+  }
 }
 .w-75 {
   width: 75%;
@@ -105,6 +118,10 @@ body {
 }
 .w-70 {
   width: 70%;
+  margin: 0 auto;
+}
+.w-60 {
+  width: 60%;
   margin: 0 auto;
 }
 .w-50 {
@@ -142,13 +159,16 @@ body {
   font-weight: bold;
 }
 .txt_white {
-  color: rgb(255, 255, 255);
+  color: white !important;
+}
+.txt_black {
+  color: black !important;
 }
 .txt_blue {
   color: blue;
 }
 .txt_red {
-  color: rgb(102, 3, 3);
+  color: rgb(102, 3, 3) !important;
 }
 //bgr
 .bsd {
@@ -157,6 +177,7 @@ body {
 .bdr-7 {
   border-radius: 7px;
 }
+
 .bg_white {
   background-color: white !important;
 }
@@ -175,6 +196,12 @@ body {
 .bg_red {
   background-color: $red !important;
 }
+.bg_red_100 {
+  background-color: $red_100 !important;
+}
+.bg_red_200 {
+  background-color: $red_200 !important;
+}
 .bg_gray {
   background-color: gray !important;
 }
@@ -186,4 +213,10 @@ body {
     #6bc5d2 80%,
     #00aeef 100%
   );
+}
+.bg_puple {
+  background-color: $puple_100 !important;
+}
+.bg_green_100 {
+  background-color: $green !important;
 }

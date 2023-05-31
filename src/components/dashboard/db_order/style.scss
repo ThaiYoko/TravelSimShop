@@ -1,0 +1,21 @@
+@import "../../../sp/scss/variable";
+#db_orders {
+  a {
+    cursor: pointer;
+    color: $red;
+    transition: 0.5s;
+    &:hover {
+      color: blue;
+    }
+  }
+  .order_content {
+    position: relative;
+    .btn_refresh {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      z-index: 99;
+      transition: 0.5s;
+    }
+  }
+}

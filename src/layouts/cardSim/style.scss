@@ -7,8 +7,14 @@
       font-family: qs_bold;
       font-size: 1rem;
       color: $red;
+      cursor: pointer;
     }
     .card-text {
+      .card_info {
+        li {
+          font-size: 0.95rem;
+        }
+      }
       .price {
         text-align: center;
         .price_link {
@@ -26,16 +32,21 @@
             span {
               color: white;
             }
+            s {
+              color: white;
+            }
           }
           s {
             color: rgb(90, 90, 90);
-            margin: 0 5px;
+            margin: 0 3px;
+            transition: 0.5s;
+            font-size: 0.8rem;
           }
           span {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: bold;
             color: $red;
-            margin: 0 5px;
+            margin: 0 3px;
             transition: 0.5s;
           }
         }

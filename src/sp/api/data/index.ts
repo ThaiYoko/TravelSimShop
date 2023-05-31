@@ -14,12 +14,18 @@ export const data_api = {
         console.log(err);
       });
   },
-  get_list_sim_by_id: async (id: number) => {
+  reload_data: async (
+    type_data: string,
+    dispatch: AppDispatch,
+    Action_Success: any
+  ) => {
     await root_axios({
       method: "get",
-      url: "/data/sims",
+      url: `/data/${type_data}`,
     })
-      .then((res) => {})
+      .then((res) => {
+        dispatch(Action_Success(res.data.Result));
+      })
       .catch((err) => {
         console.log(err);
       });

@@ -3,7 +3,6 @@ import {
   Navbar,
   Container,
   Nav,
-  Badge,
   InputGroup,
   Form,
   Button,
@@ -14,17 +13,22 @@ import "./style.scss";
 import zalo from "../../access/icon/zalo.png";
 import face from "../../access/icon/facebook.png";
 import email from "../../access/icon/email.png";
-import logo_light from "../../access/logo/dark.png";
-import { Link } from "react-router-dom";
-import ModalFindSim from "../../modals/findSim";
+import { useNavigate } from "react-router-dom";
+import { interFade_Sim } from "../../sp/interfade";
+import { formatMoney } from "../../sp/format";
 
 const SimHeader = () => {
-  const Categorys = useSelector(DataPublicSelector.Categorys);
-  const pathname = window.location.pathname;
+  const [show_menu, set_show_menu] = useState(false);
 
-  //Find_Sims
-  const [show, setShow] = useState(false);
-  const [name, setName] = useState("");
+  const TravelSimShopContact = useSelector(
+    DataPublicSelector.TravelSimShopContact
+  );
+  const Categorys = useSelector(DataPublicSelector.Categorys);
+  const Logos = useSelector(DataPublicSelector.Logos);
+  const dark_logo = Logos?.find((item) => item.id === 2);
+
+  const pathname = window.location.pathname;
+  const navigate = useNavigate();
 
   //Back to top
   const [showBtn, setShowBtn] = useState(false);
@@ -43,6 +47,7 @@ const SimHeader = () => {
       }
     });
   }, []);
+
   const handleBackTo = () => {
     window.scrollTo({
       top: 0,
@@ -51,148 +56,289 @@ const SimHeader = () => {
   };
 
   const Store = useSelector(DataPublicSelector.Store);
-  if (pathname === "/admin" || pathname === "/dashboard") {
+  const Sims = useSelector(DataPublicSelector.Sims);
+  const [find_name, setFindName] = useState("");
+  const [SimFind, setSimFind] = useState<interFade_Sim[]>([]);
+  useEffect(() => {
+    if (find_name !== "") {
+      const list = Sims?.filter((item) =>
+        item.name.toLocaleLowerCase().includes(find_name.toLocaleLowerCase())
+      );
+      setSimFind(list);
+    } else {
+      setSimFind([]);
+    }
+  }, [find_name]);
+
+  const [show_link, set_show_link] = useState("");
+
+  if (
+    pathname === "/admin" ||
+    pathname === "/admin/dashboard" ||
+    pathname === "/admin/register"
+  ) {
     return <div></div>;
   } else
     return (
-      <section id="sim_header" className="bsd">
+      <header id="sim_header" className="bsd">
         <div id="header_top">
-          <div className="w-95">
-            <Navbar expand="lg" className="p-0">
+          <div className="w-80">
+            <Navbar expand="lg" id="nav_sim_header">
               <Container fluid>
                 <Navbar.Collapse id="navbarScroll">
-                  <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-                    <Nav.Link href="/contact" className="d-flex">
-                      <span className="material-symbols-outlined">
-                        chevron_right
-                      </span>
-                      Liên hệ
+                  <Nav
+                    className="ms-auto header_top_right my-2 my-lg-0"
+                    navbarScroll
+                  >
+                    <Form className="d-flex find_sim">
+                      <InputGroup>
+                        <Form.Control
+                          type="search"
+                          placeholder="Sim bạn cần tìm"
+                          aria-label="Search"
+                          value={find_name}
+                          onChange={(e) => setFindName(e.target.value)}
+                        />
+                        <Button variant="outline-success" disabled>
+                          <span className="material-symbols-outlined">
+                            search
+                          </span>
+                        </Button>
+                      </InputGroup>
+                      <div className="find_ket_qua bsd">
+                        {SimFind?.map((item, index) => {
+                          return (
+                            <div
+                              key={index}
+                              className="find_link"
+                              onClick={() => {
+                                navigate(`/sim/chi-tiet-sim/${item?.url}`);
+                                setFindName("");
+                              }}
+                            >
+                              <div className="img_sim">
+                                <img
+                                  src={item?.Production?.avatar}
+                                  alt={item?.name}
+                                />
+                              </div>
+                              <div className="sim_info">
+                                <span>{item?.name}</span>
+                              </div>
+                              <div className="sim_price">
+                                <span>{formatMoney(item?.price)}</span>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </Form>
+                    <Nav.Link
+                      href={TravelSimShopContact?.facebook}
+                      className="icon"
+                      target="_blank"
+                    >
+                      <img src={face} alt="facebook_travelsimshop" />
                     </Nav.Link>
-                    <Nav.Link href="/payment" className="d-flex">
-                      <span className="material-symbols-outlined">
-                        chevron_right
-                      </span>
-                      Thanh toán
+                    <Nav.Link
+                      href={`mailto:${TravelSimShopContact?.email}`}
+                      className="icon"
+                    >
+                      <img src={email} alt="facebook" />
                     </Nav.Link>
-                    <Nav.Link href="/about" className="d-flex">
-                      <span className="material-symbols-outlined">
-                        chevron_right
-                      </span>
-                      Về chúng tôi
+                    <Nav.Link
+                      href={`tel:${TravelSimShopContact?.zalo?.replace(
+                        ".",
+                        ""
+                      )}`}
+                      className="icon"
+                    >
+                      <img src={zalo} alt="zalo" />
                     </Nav.Link>
-                  </Nav>
-                  <Nav>
-                    <Nav.Link href="#action1" className="icon">
-                      <img
-                        src={face}
-                        alt="face"
-                        className="img-fluid d-block w-100"
-                      />
-                    </Nav.Link>
-                    <Nav.Link href="#action1" className="icon">
-                      <img
-                        src={zalo}
-                        alt="zalo"
-                        className="img-fluid d-block w-100"
-                      />
-                    </Nav.Link>
-                    <Nav.Link href="#action1" className="icon">
-                      <img
-                        src={email}
-                        alt="email"
-                        className="img-fluid d-block w-100"
-                      />
-                    </Nav.Link>
+                    <div
+                      className="store"
+                      onClick={() => navigate("/gio-hang")}
+                    >
+                      <div className="store_icon">
+                        <span className="material-symbols-outlined">
+                          shopping_cart
+                        </span>
+                      </div>
+                      <div className="store_length">
+                        <span>{Store.length}</span>
+                      </div>
+                    </div>
                   </Nav>
                 </Navbar.Collapse>
               </Container>
             </Navbar>
           </div>
         </div>
-        <div id="header_main" className="bg_red">
-          <div className="w-95">
+        <div id="header_main" className="bg_ln">
+          <div className="w-80">
             <Navbar expand="lg">
               <Container fluid>
-                <Navbar.Brand href="/" className="logo me-4">
-                  <img src={logo_light} alt="light_logo" />
+                <Navbar.Brand href="/">
+                  <div className="logo">
+                    <img src={dark_logo?.url} alt={dark_logo?.name} />
+                  </div>
                 </Navbar.Brand>
 
-                <Navbar.Toggle aria-controls="navbarScroll" />
+                <Button
+                  onClick={() => set_show_menu(!show_menu)}
+                  id="btn_responsive"
+                >
+                  <i className="fa fa-align-justify"></i>
+                </Button>
 
-                <Navbar.Collapse id="navbarScroll">
-                  <Nav
-                    className="me-auto my-2 my-lg-0 header_main_left"
-                    navbarScroll
-                  >
-                    <Nav.Link
-                      href="/"
-                      className={
-                        pathname === "/" ? "link_header active" : "link_header"
-                      }
-                    >
-                      TRANG CHỦ
+                <Navbar.Collapse
+                  id="nav_sim"
+                  className={show_menu ? "menu_show" : ""}
+                >
+                  <Nav className="m-auto header_main_left my-2 my-lg-0">
+                    <Nav.Link href="/" className="link_header">
+                      HOME
                     </Nav.Link>
                     {Categorys?.map((item, index) => {
                       return (
-                        <Nav.Link
+                        <div
                           key={index}
-                          href={`/categorys/${item.url}`}
                           className={
-                            pathname === `/categorys/${item.url}`
+                            pathname?.split("/")[2] === item.url
                               ? "link_header active"
                               : "link_header"
                           }
                         >
-                          {item.name.toLocaleUpperCase()}
-                        </Nav.Link>
+                          <div
+                            className="lin"
+                            onClick={() => {
+                              if (show_link === item.name) {
+                                set_show_link("");
+                              } else {
+                                set_show_link(item.name);
+                              }
+                            }}
+                          >
+                            <p className="m-0">
+                              {item.name.toLocaleUpperCase()}
+                            </p>
+                            <i className="fa fa-angle-down"></i>
+                          </div>
+                          {item.Productions.length > 0 ? (
+                            <div
+                              className={
+                                show_link === item.name
+                                  ? "link_dropdow active"
+                                  : "link_dropdow"
+                              }
+                            >
+                              {item.Productions?.map((prd, index2) => {
+                                return (
+                                  <div
+                                    key={index2}
+                                    className={
+                                      pathname?.split("/")[3] === prd.url
+                                        ? "dropdow_item active "
+                                        : "dropdow_item"
+                                    }
+                                    onClick={() => {
+                                      navigate(`/sim/${item.url}/${prd.url}`);
+                                      set_show_menu(false);
+                                      set_show_link("");
+                                    }}
+                                  >
+                                    {prd.name}
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          ) : (
+                            <Nav.Link href={item.url} className="link_header">
+                              {item.name}
+                            </Nav.Link>
+                          )}
+                        </div>
                       );
                     })}
+
+                    <Nav.Link className="link_header bdr-none" href="/lien-he">
+                      LIÊN HỆ
+                    </Nav.Link>
+                    <Nav.Link
+                      className="link_header store_cart bdr-none"
+                      href="/gio-hang"
+                    >
+                      GIỎ HÀNG
+                    </Nav.Link>
                   </Nav>
 
-                  <div className="header_main_right">
-                    <InputGroup className="me-3">
+                  <Form className="d-flex header_main_right">
+                    <InputGroup>
                       <Form.Control
-                        id="input_find"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        type="search"
                         placeholder="Sim bạn cần tìm"
+                        aria-label="Search"
+                        value={find_name}
+                        onChange={(e) => setFindName(e.target.value)}
                       />
-                      <Button onClick={() => setShow(true)} id="btn_find">
+                      <Button variant="outline-success" disabled>
                         <span className="material-symbols-outlined">
                           search
                         </span>
                       </Button>
                     </InputGroup>
-
-                    <div className="store">
-                      <Link to={"/store"} className="btn_store">
-                        <span className="material-symbols-outlined icon_store">
-                          shopping_cart
-                        </span>
-                      </Link>
-                      <Badge bg="danger" className="number_badge">
-                        {Store.length}
-                      </Badge>
+                    <div className="find_ket_qua bsd">
+                      {SimFind?.map((item, index) => {
+                        return (
+                          <div
+                            key={index}
+                            className="find_link"
+                            onClick={() => {
+                              navigate(`/sim/chi-tiet-sim/${item.url}`);
+                              setFindName("");
+                            }}
+                          >
+                            <div className="img_sim">
+                              <img
+                                src={item.Production.avatar}
+                                alt={item.name}
+                              />
+                            </div>
+                            <div className="sim_info">
+                              <span>{item.name}</span>
+                            </div>
+                            <div className="sim_price">
+                              <span>{formatMoney(item.price)}</span>
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
-                  </div>
+                  </Form>
                 </Navbar.Collapse>
               </Container>
             </Navbar>
           </div>
         </div>
-        {/* Modals */}
-        <ModalFindSim
-          name={name}
-          show={show}
-          setShow={setShow}
-          setName={setName}
-        />
+
         {showBtn && (
-          <Button id="btn_btt" onClick={() => handleBackTo()}>
-            Back to top
-          </Button>
+          <>
+            <Button id="btn_btt" onClick={() => handleBackTo()}>
+              <i className="fa fa-angle-up"></i>
+            </Button>
+            <div className="setting">
+              <div className="store" onClick={() => navigate("/gio-hang")}>
+                <div className="store_icon">
+                  <i className="fa fa-shopping-cart"></i>
+                </div>
+                <div className="store_length">
+                  <span>{Store.length}</span>
+                </div>
+              </div>
+            </div>
+          </>
         )}
-      </section>
+      </header>
     );
 };
 

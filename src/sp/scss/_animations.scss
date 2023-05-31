@@ -9,3 +9,71 @@
     transform: translateX(-5px);
   }
 }
+@keyframes Icon_auto_zalo {
+  0% {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(31, 139, 211, 0.815);
+  }
+  50% {
+    width: 67px;
+    height: 67px;
+    background-color: rgba(31, 139, 211, 0.815);
+  }
+  100% {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(31, 139, 211, 0.815);
+  }
+}
+@keyframes Icon_auto_facebook {
+  0% {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(10, 57, 211, 0.815);
+  }
+  50% {
+    width: 67px;
+    height: 67px;
+    background-color: #0840b2;
+  }
+  100% {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(5, 25, 197, 0.815);
+  }
+}
+@keyframes Icon_auto_email {
+  0% {
+    width: 45px;
+    height: 45px;
+    background-color: #be073b;
+  }
+  50% {
+    width: 67px;
+    height: 67px;
+    background-color: #e20544c2;
+  }
+  100% {
+    width: 45px;
+    height: 45px;
+    background-color: #e20544;
+  }
+}
+@keyframes Icon_auto_rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

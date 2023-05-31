@@ -13,6 +13,8 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { Store, persistor } from "./sp/redux/store";
 import { BrowserRouter } from "react-router-dom";
+import SEO from "./seo";
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -21,6 +23,10 @@ root.render(
     <Provider store={Store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
+          <SEO
+            title="TRAVELSIMSHOP || SIM DU LỊCH"
+            description="TravelSimShop chuyên cung cấp Sim du lịch Châu Á - Sim du lịch Châu Âu - Sim du lịch Châu Úc - ESIM giá rẻ dung lượng cao."
+          />
           <SimHeader />
           <App />
           <SimFooter />

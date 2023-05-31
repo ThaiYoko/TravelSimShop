@@ -1,0 +1,115 @@
+@import "../../../../sp/scss/variable";
+
+.modal {
+  .bill {
+    .bill_content {
+      .bill_table {
+        .table_header {
+          display: flex !important;
+          justify-content: flex-start;
+          align-items: center;
+          .header_left {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 60%;
+          }
+          .header_right {
+            width: 40%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+        }
+        .table_items {
+          .table_item {
+            display: flex;
+            cursor: pointer;
+            transition: 0.5s;
+            border-bottom: 1px solid gray;
+            padding: 10px 0;
+            @media only screen and (max-width: 800px) {
+              overflow-x: scroll;
+            }
+            @media only screen and (max-width: 1000px) {
+              .item_left {
+                width: 50% !important;
+                .item_left_content {
+                  display: block !important;
+                  margin-left: 20px;
+                  .item_img {
+                    margin: 5px 0 !important;
+                  }
+                  .item_name {
+                    h6 {
+                      margin: 0;
+                    }
+                  }
+                }
+              }
+              .item_right {
+                width: 50% !important;
+              }
+            }
+            &:hover {
+              background-color: rgba(128, 128, 128, 0.336);
+            }
+            .item_left {
+              display: flex;
+              align-items: center;
+              width: 60%;
+              .btn_remove {
+                color: $red;
+              }
+              .item_left_content {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                .item_img {
+                  width: 100px;
+                  margin: 0 15px;
+                  img {
+                    width: 100%;
+                  }
+                }
+                .item_name {
+                  h6 {
+                    color: $red;
+                  }
+                }
+              }
+            }
+            .item_right {
+              width: 40%;
+              display: flex;
+              justify-content: space-between;
+              .item_count {
+                display: flex;
+                .btn_count {
+                  cursor: pointer;
+                  width: 35px;
+                  height: 35px;
+                  background-color: rgb(231, 231, 231);
+                  position: relative;
+                  span {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 0.8rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .img_pay {
+    width: 200px;
+    img {
+      width: 100%;
+    }
+  }
+}

@@ -17,8 +17,8 @@ const SlideImg = ({ List_Card, Title, Bgr }: Slide_Card) => {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 3000,
-    autoplaySpeed: 2000,
+    speed: 10000,
+    autoplaySpeed: 10000,
     cssEase: "linear",
     responsive: [
       {
@@ -29,8 +29,8 @@ const SlideImg = ({ List_Card, Title, Bgr }: Slide_Card) => {
           slidesToShow: 3,
           slidesToScroll: 1,
           autoplay: true,
-          speed: 2000,
-          autoplaySpeed: 2000,
+          speed: 10000,
+          autoplaySpeed: 10000,
           cssEase: "linear",
         },
       },
@@ -42,8 +42,8 @@ const SlideImg = ({ List_Card, Title, Bgr }: Slide_Card) => {
           slidesToShow: 2,
           slidesToScroll: 1,
           autoplay: true,
-          speed: 2000,
-          autoplaySpeed: 2000,
+          speed: 10000,
+          autoplaySpeed: 10000,
           cssEase: "linear",
         },
       },
@@ -55,7 +55,7 @@ const SlideImg = ({ List_Card, Title, Bgr }: Slide_Card) => {
           slidesToShow: 1,
           slidesToScroll: 1,
           autoplay: true,
-          speed: 2000,
+          speed: 5000,
           autoplaySpeed: 2000,
           cssEase: "linear",
         },
@@ -64,9 +64,9 @@ const SlideImg = ({ List_Card, Title, Bgr }: Slide_Card) => {
   };
 
   return (
-    <section id="slide_card" className={`${Bgr} p-5`}>
+    <section id="slide_card" className={`${Bgr} pb-5 pt-3`}>
       <div className="w-80">
-        <div className="sim_header mb-4">
+        <div className="sim_header">
           <h4 className="txt_center txt_red">{Title}</h4>
         </div>
 

@@ -1,5 +1,14 @@
 @import "../../sp/scss/variable";
 #home_page {
+  #sim_banner {
+    @media only screen and (max-width: 992px) {
+      width: 95%;
+      margin: 0 auto;
+      margin-top: 20px;
+      border-radius: 7px;
+      overflow: hidden;
+    }
+  }
   #advantage {
     .advantage_content {
       .advantage_item {
@@ -49,53 +58,22 @@
       }
     }
   }
-  #TRAVELSIMSHOP {
-    .travel_content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      @media only screen and (max-width: 1200px) {
-        flex-wrap: wrap;
-      }
-      .travel_item {
-        height: 550px;
-        padding: 15px 30px;
-        width: 30%;
+  #travel_simshop {
+    .travel_simshop_content {
+      .advantage_item {
+        min-height: 380px;
         margin: 0 auto;
-        overflow: hidden;
-        @media only screen and (max-width: 1200px) {
-          width: 48%;
-          margin: 0 auto;
-          margin-bottom: 15px;
-        }
-        @media only screen and (max-width: 800px) {
-          width: 90%;
-          margin: 0 auto;
-          margin-bottom: 15px;
-        }
+        padding: 25px;
+        transition: 0.5s;
         .item_icon {
-          margin-top: 30px;
-          text-align: center;
-          span {
-            font-size: 4rem;
-            color: $green_700;
-          }
+          display: block;
         }
         .item_title {
+          margin-top: 25px;
           h6 {
-            font-size: 1.1rem;
-            color: $red;
-          }
-        }
-        .travel_info {
-          width: 80%;
-          margin: 0 auto;
-
-          .item_txt {
-          }
-          img {
-            margin: 0 auto;
-            opacity: 0.9;
+            font-size: 20px;
+            font-family: qs_bold;
+            color: blue;
           }
         }
       }

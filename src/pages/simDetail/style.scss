@@ -3,68 +3,61 @@
   margin: 30px 0;
   .sim_content {
     .sim_img {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
+      padding: 15px;
       img {
-        width: 80%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        width: 100%;
+        margin: auto;
       }
     }
     .sim_info {
+      padding: 15px;
+      .simDetail_header {
+        h4 {
+          margin: 0;
+          color: $red;
+          font-family: qs_bold;
+        }
+      }
       .total_data {
         font-style: italic;
-        padding-left: 20px;
+        display: block;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
       }
       .sim_info_content {
         width: 100%;
+        @media only screen and (max-width: 1650px) {
+          .inventory,
+          .btn_add_cart {
+            width: 80% !important;
+          }
+        }
+        @media only screen and (max-width: 1200px) {
+          .inventory,
+          .btn_add_cart {
+            width: 50% !important;
+          }
+        }
+        @media only screen and (max-width: 800px) {
+          .inventory,
+          .btn_add_cart {
+            width: 100% !important;
+          }
+        }
         .price {
           display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          border: 1px solid gray;
-          margin: 15px 0;
-          width: 100%;
-
-          .price_item {
-            width: 50%;
-            position: relative;
-            #price_discount {
-              display: block;
-              position: absolute;
-              top: 65%;
-              right: -20%;
-              transform: translate(-50%, -50%);
-            }
-            .price_header {
-              text-align: center;
-              background-color: $red;
-              padding: 10px 0;
-              p {
-                color: white;
-                font-style: italic;
-              }
-            }
-
-            span {
-              font-family: qs_bold;
-              font-size: 2rem;
-              color: $red;
-            }
-            s {
-              font-style: italic;
-              text-align: center;
-              display: block;
-              font-size: 1.3rem;
-              margin-top: 7px;
-            }
+          justify-content: flex-start;
+          align-items: center;
+          s {
+            padding-left: 15px;
+            font-style: italic;
+            margin-right: 10px;
+          }
+          h1 {
+            color: $red;
+            font-style: italic;
+            font-family: qs_bold;
+            font-size: 1.8rem;
           }
         }
         .sim_item {
@@ -85,19 +78,21 @@
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
-          width: 100%;
+          width: 50%;
           margin: 15px 0;
           border: 1px solid gray;
+
           .inventory_item {
             width: 33.33%;
             .inventory_header {
               padding: 5px 10px;
               text-align: center;
               color: white;
-              background-color: $green_600;
+              background-color: $puple_100;
               transition: 0.5s;
+              cursor: pointer;
               &:hover {
-                background-color: $green_700;
+                background-color: $red_100;
               }
               p {
                 font-style: italic;
@@ -115,51 +110,56 @@
           }
         }
         .btn_add_cart {
+          width: 50%;
           padding: 15px;
           border-radius: 3px;
-          background-color: $red;
-          border: none;
+          background-color: transparent;
+          color: $red_100;
+          font-style: italic;
+          font-weight: bold;
+          border-color: $red_100;
           display: flex;
           justify-content: center;
           align-items: center;
           transition: 0.5s;
           &:hover {
-            background-color: $green_700;
+            background-color: $red_200;
+            color: white;
             span {
-              margin: 0 3px;
+              margin: 0 10px;
             }
           }
           span {
             display: block;
-            margin: 0 10px;
+            margin: 0 3px;
             transition: 0.5s;
           }
         }
       }
     }
     .tabs_sim {
-      margin: 30px 0;
-      position: relative;
       .btn_tabs {
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
+        padding: 20px 0 0 20px;
         button {
-          border-radius: 0;
-          padding: 10px 15px;
-
-          background-color: $green_600;
-          border: none;
+          padding: 15px;
+          border-radius: 3px;
+          background-color: transparent;
+          color: $red_100;
+          font-style: italic;
+          font-weight: bold;
+          border-color: $red_100;
           transition: 0.5s;
-          &.active,
-          &:hover {
-            background-color: $green_700;
+          margin: 0 5px;
+          min-width: 150px;
+          &:hover,
+          &.active {
+            background-color: $red_200;
+            color: white;
           }
         }
       }
       .tabs_panel {
-        padding: 50px 25px;
         .sim_info {
           padding: 25px;
           .info_item {
@@ -181,8 +181,9 @@
                 margin: 10px 0;
                 span:last-child {
                   padding: 5px 10px;
-                  background-color: $green_600;
-                  color: white;
+                  // background-color: $green_600;
+                  // color: white;
+                  font-weight: bold;
                   border-radius: 3px;
                   margin-left: 15px;
                 }

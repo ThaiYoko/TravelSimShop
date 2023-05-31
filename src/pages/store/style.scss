@@ -1,0 +1,73 @@
+@import "../../sp/scss/variable";
+#store {
+  .store_content {
+    padding: 30px 0;
+    @media only screen and (max-width: 991px) {
+      padding: 15px 0;
+    }
+
+    .store_ship {
+      .bill_header {
+        color: $red;
+        display: flex;
+      }
+      .bill_form {
+        .imge_pay {
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          @media only screen and (max-width: 650px) {
+            display: block !important;
+            .pay_qrcode,
+            .pay_note {
+              width: 100% !important;
+            }
+          }
+          .pay_qrcode {
+            text-align: center;
+            width: 50%;
+            img {
+              width: 200px;
+              margin: 0 auto;
+            }
+          }
+          .pay_note {
+            width: 50%;
+            .pay_iput_img {
+              .preview {
+                height: 200px;
+                margin: 0 auto;
+                overflow: hidden;
+                text-align: center;
+                img {
+                  height: 100%;
+                }
+              }
+              .btn_pay {
+                button {
+                  background-color: transparent;
+                  color: gray;
+                  width: 37px;
+                  height: 37px;
+                  margin: 0 3px;
+                  transition: 0.5s;
+                  border-color: gray;
+                  &:hover {
+                    background-color: rgba(39, 39, 39, 0.582);
+                    color: white;
+                  }
+                }
+                .btn_ok {
+                  color: green;
+                }
+                .btn_cancle {
+                  color: $red;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

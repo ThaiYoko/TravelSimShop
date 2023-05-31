@@ -2,12 +2,26 @@ import React from "react";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./style.scss";
-import logo_dark from "../../access/logo/dark.png";
 import bct from "../../access/icon/bct.png";
+import { useSelector } from "react-redux";
+import { DataPublicSelector } from "../../sp/redux/slice/data";
 
 const SimFooter = () => {
+  //Data
+  const TravelSimShopContact = useSelector(
+    DataPublicSelector.TravelSimShopContact
+  );
+  const Logos = useSelector(DataPublicSelector.Logos);
+  const Categorys = useSelector(DataPublicSelector.Categorys);
+
+  const dark_logo = Logos?.find((item) => item.id === 2);
+
   const pathname = window.location.pathname;
-  if (pathname === "/admin" || pathname === "/dashboard") {
+  if (
+    pathname === "/admin" ||
+    pathname === "/admin/dashboard" ||
+    pathname === "/admin/register"
+  ) {
     return <div></div>;
   } else
     return (
@@ -20,7 +34,7 @@ const SimFooter = () => {
                   <div className="footer_logo">
                     <div className="logo_top">
                       <div className="logo">
-                        <img src={logo_dark} alt="logo" />
+                        <img src={dark_logo?.url} alt={dark_logo?.name} />
                       </div>
 
                       <ul className="logo_serevive">
@@ -65,8 +79,8 @@ const SimFooter = () => {
                           <span className="material-symbols-outlined">
                             mail
                           </span>
-                          <Link to={"mailto:travelsimshop14@gmail.com"}>
-                            travelsimshop14@gmail.com
+                          <Link to={`mailto:${TravelSimShopContact?.email}`}>
+                            {TravelSimShopContact?.email}
                           </Link>
                         </li>
                         <hr className="mt-1 mb-1 txt_white" />
@@ -74,7 +88,9 @@ const SimFooter = () => {
                           <span className="material-symbols-outlined">
                             phone_in_talk
                           </span>
-                          <Link to={"tel:0938561002"}>093.856.1002</Link>
+                          <Link to={`tel:${TravelSimShopContact?.phone}`}>
+                            {TravelSimShopContact?.phone}
+                          </Link>
                         </li>
                         <hr className="mt-1 mb-1 txt_white" />
                         <li>
@@ -83,7 +99,7 @@ const SimFooter = () => {
                             style={{ fontSize: "1.3rem" }}
                           ></i>
                           <Link
-                            to={"https://www.facebook.com/travelsimshop/"}
+                            to={TravelSimShopContact?.facebook}
                             target="_blank"
                           >
                             Travel Sim Shop
@@ -94,9 +110,7 @@ const SimFooter = () => {
                           <span className="material-symbols-outlined">
                             pin_drop
                           </span>
-                          <p className="m-0">
-                            84 Lê Quang Định, P.14, Q.Bình Thạnh, TP.HCM
-                          </p>
+                          <a className="m-0">{TravelSimShopContact?.adress}</a>
                         </li>
                       </ul>
                     </div>
@@ -109,41 +123,17 @@ const SimFooter = () => {
                     </div>
                     <div className="footer_links footer_infor">
                       <ul>
-                        <li>
-                          <span className="material-symbols-outlined">
-                            sim_card
-                          </span>
-                          <Link to={"mailto:travelsimshop14@gmail.com"}>
-                            Sim Châu Á
-                          </Link>
-                        </li>
-                        <hr className="mt-1 mb-1 txt_white" />
-                        <li>
-                          <span className="material-symbols-outlined">
-                            sim_card
-                          </span>
-                          <Link to={"mailto:travelsimshop14@gmail.com"}>
-                            Sim Châu Âu - Mỹ
-                          </Link>
-                        </li>
-                        <hr className="mt-1 mb-1 txt_white" />
-                        <li>
-                          <span className="material-symbols-outlined">
-                            sim_card
-                          </span>
-                          <Link to={"mailto:travelsimshop14@gmail.com"}>
-                            Sim Châu Úc - Phi
-                          </Link>
-                        </li>
-                        <hr className="mt-1 mb-1 txt_white" />
-                        <li>
-                          <span className="material-symbols-outlined">
-                            sim_card
-                          </span>
-                          <Link to={"mailto:travelsimshop14@gmail.com"}>
-                            ESIM
-                          </Link>
-                        </li>
+                        {Categorys?.map((item, index) => {
+                          return (
+                            <li key={index}>
+                              <span className="material-symbols-outlined">
+                                sim_card
+                              </span>
+                              <Link to={`/sim/${item.url}`}>{item.name}</Link>
+                              <hr className="mt-1 mb-1 txt_white" />
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                   </div>

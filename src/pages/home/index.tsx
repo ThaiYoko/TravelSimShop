@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SimBanners from "../../layouts/banner";
 import { Row, Col } from "react-bootstrap";
 import "./style.scss";
@@ -15,6 +15,11 @@ const HomePage = () => {
   const Sims = useSelector(DataPublicSelector.Sims);
   const ListComons = Sims?.filter((item) => item.common);
   const Hot_Sims = useSelector(DataPublicSelector.Hot_Sims);
+
+  useEffect(() => {
+    // 👇️ scroll to top on page load
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div id="home_page">
       <SimBanners />
@@ -29,8 +34,8 @@ const HomePage = () => {
         Bgr="bg_pink_700"
       />
 
-      <section id="advantage" className="mb-5 mt-5">
-        <div className="w-85">
+      <section id="advantage" className="pt-5 pb-5">
+        <div className="w-80">
           <div className="sim_header mb-4">
             <h4 className="txt_center txt_red">ƯU ĐIỂM CỦA SIM THẺ QUỐC TẾ</h4>
           </div>
@@ -140,89 +145,94 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section id="TRAVELSIMSHOP" className="mt-5 mb-5 p-5 bg_pink_700">
+      <section id="travel_simshop" className="pt-5 pb-5 bg_pink_700">
         <div className="w-80">
           <div className="sim_header mb-4">
             <h4 className="txt_center txt_red">
               ƯU ĐIỂM KHI MUA HÀNG TẠI TRAVELSIMSHOP
             </h4>
           </div>
-          <div className="travel_content">
-            <div className="travel_item  bsd bdr-7 bg_white">
-              <div className="item_icon">
-                <span className="material-symbols-outlined">
-                  monetization_on
-                </span>
-              </div>
-              <hr />
-              <div className="item_title">
-                <h6 className="txt_center txt_bold">
-                  TIẾT KIỆM HƠN KHI MUA Ở NƯỚC NGOÀI
-                </h6>
-              </div>
-
-              <div className="travel_info">
-                <div className="item_txt">
-                  <p className="txt_justify">
-                    Mua Sim Quốc Tế ở Sim Station đảm bảo rẻ hơn tới 50% so với
-                    khi mua sim ở nước ngoài. Sẵn sàng hoàn tiền 100% khi sim bị
-                    lỗi, hỗ trợ tư vấn 24/7.
-                  </p>
+          <div className="travel_simshop_content">
+            <Row>
+              <Col xs={12} sm={12} md={6} xl={4} className="mb-2 mt-2">
+                <div className="advantage_item ">
+                  <div className="item_icon">
+                    <img
+                      src={tietkiem}
+                      alt="tietkiem"
+                      className="img-fluid w-50 d-block"
+                    />
+                  </div>
+                  <div className="advantage_info">
+                    <div className="item_title">
+                      <h6 className="txt_center txt_bold">
+                        TIẾT KIỆM HƠN KHI MUA Ở NƯỚC NGOÀI
+                      </h6>
+                    </div>
+                    <div className="advantage_txt">
+                      <p className="txt_justify">
+                        Mua Sim Quốc Tế ở Sim Station đảm bảo rẻ hơn tới 50% so
+                        với khi mua sim ở nước ngoài. Sẵn sàng hoàn tiền 100%
+                        khi sim bị lỗi, hỗ trợ tư vấn 24/7.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-
-                <img src={tietkiem} alt="tietkiem" className="w-80" />
-              </div>
-            </div>
-
-            <div className="travel_item bsd bdr-7 bg_white">
-              <div className="item_icon">
-                <span className="material-symbols-outlined">
-                  local_shipping
-                </span>
-              </div>
-              <hr />
-              <div className="item_title">
-                <h6 className="txt_center txt_bold">GIAO HÀNG TẬN NƠI</h6>
-              </div>
-
-              <div className="travel_info">
-                <div className="item_txt">
-                  <p className="txt_justify">
-                    Đặt và nhận Sim từ 1 - 3 ngày làm việc, giao hàng tận nhà,
-                    thanh toán khi nhận hàng.
-                  </p>
+              </Col>
+              <Col xs={12} sm={12} md={6} xl={4} className="mb-2 mt-2">
+                <div className="advantage_item ">
+                  <div className="item_icon">
+                    <img
+                      src={ship}
+                      alt="giao-hang-tan-noi"
+                      className="img-fluid w-50 d-block"
+                    />
+                  </div>
+                  <div className="advantage_info">
+                    <div className="item_title">
+                      <h6 className="txt_center txt_bold">GIAO HÀNG TẬN NƠI</h6>
+                    </div>
+                    <div className="advantage_txt">
+                      <p className="txt_justify">
+                        Đặt và nhận Sim từ 1 - 3 ngày làm việc, giao hàng tận
+                        nhà, thanh toán khi nhận hàng.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <img src={ship} alt="ship" className="w-95" />
-              </div>
-            </div>
-
-            <div className="travel_item bsd bdr-7 bg_white">
-              <div className="item_icon">
-                <span className="material-symbols-outlined">overview</span>
-              </div>
-              <hr />
-              <div className="item_title">
-                <h6 className="txt_center txt_bold">THỦ TỤC ĐƠN GIẢN</h6>
-              </div>
-              <div className="travel_info">
-                <div className="item_txt">
-                  <p className="txt_justify">
-                    Không cần đăng ký thông tin rườm rà, không cần Passport khi
-                    mua, không lo bị đánh cắp thông tin. Chỉ cần liên hệ Sim
-                    Station đặt mua đơn giản, lắp sim vào máy là kích hoạt dùng
-                    ngay.
-                  </p>
+              </Col>
+              <Col xs={12} sm={12} md={6} xl={4} className="mb-2 mt-2">
+                <div className="advantage_item">
+                  <div className="item_icon">
+                    <img
+                      src={thutuc}
+                      alt="ship"
+                      className="img-fluid w-50 d-block"
+                    />
+                  </div>
+                  <div className="advantage_info">
+                    <div className="item_title">
+                      <h6 className="txt_center txt_bold">THỦ TỤC ĐƠN GIẢN</h6>
+                    </div>
+                    <div className="advantage_txt">
+                      <p className="txt_justify">
+                        Không cần đăng ký thông tin rườm rà, không cần Passport
+                        khi mua, không lo bị đánh cắp thông tin. Chỉ cần liên hệ
+                        Sim Station đặt mua đơn giản, lắp sim vào máy là kích
+                        hoạt dùng ngay.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <img src={thutuc} alt="ship" className="w-80" />
-              </div>
-            </div>
+              </Col>
+            </Row>
           </div>
         </div>
       </section>
 
-      <section id="reviews">
+      <section id="reviews" className="pt-5 pb-5">
         <div className="w-80">
-          <div className="sim_header mb-4">
+          <div className="sim_header">
             <h4 className="txt_center txt_red">CHIA SẺ CỦA KHÁCH HÀNG</h4>
           </div>
           <SlideReviews />

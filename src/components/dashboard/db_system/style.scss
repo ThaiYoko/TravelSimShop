@@ -1,0 +1,217 @@
+@import "../../../sp/scss/variable";
+#db_system {
+  .travel_contact {
+    .contact_content {
+      .contact_items {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        @media only screen and (max-width: 1300px) {
+          flex-wrap: wrap;
+          .contact_item {
+            width: 48% !important;
+            margin: 0 auto;
+          }
+        }
+        @media only screen and (max-width: 920px) {
+          flex-wrap: wrap;
+          .contact_item {
+            width: 100% !important;
+            margin: 0 auto;
+            min-height: unset !important;
+            height: auto !important;
+          }
+        }
+        .contact_item {
+          width: 33%;
+          margin: 5px auto;
+          padding: 25px;
+          border: 1px solid white;
+          border-radius: 10px;
+          position: relative;
+          min-height: 570px;
+          transition: 0.5s;
+
+          .contact_info {
+            input {
+              background-color: transparent;
+              color: white;
+              border-radius: 7px;
+              border: 1px solid white;
+              padding: 10px;
+              &:focus {
+                outline: none;
+              }
+            }
+            .contac_header {
+              margin: 15px 0;
+              h6 {
+                color: $red;
+                font-weight: 600;
+                line-height: 0.3;
+              }
+              span {
+                font-style: italic;
+                letter-spacing: 2px;
+                color: white;
+              }
+            }
+            .contact_sub {
+              margin: 0 auto;
+              list-style: none;
+              text-align: left;
+              color: white;
+              padding: 15px;
+              li {
+                span {
+                  font-size: 0.9rem;
+                  margin-right: 10px;
+                }
+              }
+            }
+            .contact_txt {
+              .txt_item {
+                margin: 5px 0;
+                span:first-child {
+                  display: inline-block;
+                  width: 80px;
+                }
+                span:last-child,
+                input {
+                  display: inline-block;
+                  width: calc(100% - 90px);
+                  overflow-wrap: break-word;
+                }
+              }
+            }
+            .btn_contact {
+              position: absolute;
+              top: 10px;
+              right: 10px;
+              button {
+                width: 40px;
+                height: 40px;
+                margin: 0 2px;
+                background-color: transparent;
+                border-color: white;
+                transition: 0.5s;
+                &:hover {
+                  background-color: rgba(128, 128, 128, 0.397);
+                }
+              }
+              .btn_cancle {
+                &:hover {
+                  background-color: rgba(128, 128, 128, 0.397);
+                  color: red;
+                }
+              }
+              .btn_success {
+                &:hover {
+                  background-color: rgba(128, 128, 128, 0.397);
+                  color: green;
+                }
+              }
+            }
+          }
+        }
+        .logo_item {
+          position: relative;
+          overflow: hidden;
+          .contact_img {
+            width: 60%;
+            margin: 0 auto;
+            padding: 25px;
+          }
+          .contact_input {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(31, 31, 31, 0.705);
+            padding: 10px 15px;
+            width: 100%;
+            transform: translateY(100%);
+            transition: 0.5s;
+            &.active {
+              transform: translateY(0);
+            }
+            input {
+              border-bottom-right-radius: 0;
+              border-top-right-radius: 0;
+            }
+            button {
+              background-color: transparent;
+              border-color: white;
+              transition: 0.5s;
+            }
+            .btn_success {
+              &:hover {
+                color: green;
+              }
+            }
+            .btn_cancle {
+              &:hover {
+                color: red;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .system_content {
+    .system_item {
+      .system_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .add_banner {
+        .preview_banner {
+          width: 100%;
+          overflow: hidden;
+          border-radius: 7px;
+          border: 1px solid white;
+          margin-bottom: 15px;
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .banner_items {
+        .banner_item {
+          border: 1px solid white;
+          border-radius: 7px;
+          overflow: hidden;
+          background-color: rgba(199, 199, 199, 0.39);
+          position: relative;
+          .banner_img {
+            img {
+              width: 100%;
+            }
+          }
+          .banner_btn {
+            position: absolute;
+            top: 3px;
+            right: 3px;
+          }
+          .img_edit {
+            position: absolute;
+            bottom: 0;
+            right: -50%;
+            transform: translate(-77%, 100%);
+            width: 80%;
+            margin: 0 auto;
+            background-color: rgba(34, 34, 34, 0.438);
+            padding: 10px 25px;
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+            transition: 0.5s;
+            &.active {
+              transform: translate(-77%, 0%);
+            }
+          }
+        }
+      }
+    }
+  }
+}

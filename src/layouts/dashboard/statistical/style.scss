@@ -1,0 +1,94 @@
+@import "../../../sp/scss/variable";
+#statistical {
+  .statistical_content {
+    .web_info {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      @media only screen and (max-width: 750px) {
+        flex-wrap: wrap;
+        .info_item {
+          width: 50% !important;
+        }
+      }
+      @media only screen and (max-width: 320px) {
+        flex-wrap: wrap;
+        .info_item {
+          width: 100% !important;
+          padding: 10px 0 !important;
+        }
+      }
+      .info_item {
+        color: white;
+        text-align: center;
+        width: 80%;
+        padding: 50px 0;
+        margin: 0 auto;
+        border-radius: 7px;
+
+        .icon {
+          width: 80px;
+          height: 80px;
+          border: 3px solid white;
+          margin: 15px auto;
+          border-radius: 100%;
+
+          span {
+            font-size: 2.5rem;
+            line-height: 80px;
+            color: white;
+          }
+        }
+        h1 {
+          font-family: qs_bold;
+          font-size: 3.5rem;
+        }
+      }
+    }
+    .statistical_items {
+      .tab_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .tab_month {
+          .tab_labels {
+            width: 100px;
+            //   border: 1px solid white;
+            text-align: center;
+            padding: 10px 0;
+            color: white;
+            background-color: rgba(128, 128, 128, 0.171);
+            transition: 0.5s;
+            position: relative;
+            &::after {
+              content: "";
+              display: block;
+              width: 0%;
+              margin: 0 auto;
+              height: 1px;
+              background-color: white;
+              position: absolute;
+              bottom: 0;
+              transition: 0.5s;
+            }
+            cursor: pointer;
+            &:hover,
+            &.active {
+              background-color: rgba(46, 46, 46, 0.678);
+              &::after {
+                width: 100%;
+              }
+            }
+          }
+        }
+        .tab_year {
+          h6 {
+            color: white;
+            font-size: 1.2rem;
+            font-family: qs_bold;
+          }
+        }
+      }
+    }
+  }
+}

@@ -19,7 +19,6 @@ const SlideReviews = () => {
   };
 
   const Reviews = useSelector(DataPublicSelector.Reviews);
-  console.log(Reviews);
 
   return (
     <div id="slide_reviews">

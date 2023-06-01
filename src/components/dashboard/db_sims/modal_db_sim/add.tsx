@@ -173,6 +173,7 @@ const ModalAddSim = ({
                 <Form.Group className="mb-3">
                   <Form.Label>Expiry (day)</Form.Label>
                   <Form.Control
+                    pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
                     value={expiry}
                     onChange={(e) => set_expiry(e.target.value)}
                     type="number"
@@ -198,7 +199,7 @@ const ModalAddSim = ({
                     value={price}
                     onChange={(e) => set_price(e.target.value)}
                     min={0}
-                    step={500}
+                    step={100000}
                   />
                 </Form.Group>
               </Col>
@@ -207,11 +208,12 @@ const ModalAddSim = ({
                 <Form.Group className="mb-3">
                   <Form.Label>Discount</Form.Label>
                   <Form.Control
+                    pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
                     type="number"
                     value={discount}
                     onChange={(e) => set_discount(e.target.value)}
                     min={0}
-                    step={1}
+                    step={10000}
                   />
                 </Form.Group>
               </Col>
@@ -221,10 +223,7 @@ const ModalAddSim = ({
                   <Form.Label>Sale</Form.Label>
                   <Form.Control
                     value={formatMoney(
-                      (
-                        Number(price) -
-                        (Number(price) * Number(discount)) / 100
-                      ).toString()
+                      (Number(price) - Number(discount)).toString()
                     )}
                     disabled
                   />

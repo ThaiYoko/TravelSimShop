@@ -3,8 +3,6 @@ import jwt from "jwt-decode";
 import { AppDispatch } from "../redux/store";
 import { Refresh_Token_Success, Sign_Out_Success } from "../redux/slice/admin";
 import { toast } from "react-toastify";
-
-// export const base_url = "http://localhost:3005";
 export const base_url = "https://events.travelsimshop.vn";
 export const root_axios = axios.create({
   baseURL: base_url + "/api/v1",
